@@ -4,12 +4,11 @@ This project contains final Faucet Smart Contract from Mastering Ethereum with h
 
 Go through the scripts and try to interact with the Smart Contract.
 
-Try it locally,
+Try it locally (make sure you added your private key & RPC url in .env file if trying on test/main network),
 
 ```shell
 git clone https://github.com/AndrewPrasaath/Faucet-Contract.git
 npm install
 npx hardhat run scripts/deploy.js
-yarn hardhat test (or) npx hardhat test
-npx hardhat node
+npx hardhat test
 ```
