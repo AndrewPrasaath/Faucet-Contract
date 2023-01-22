@@ -1,13 +1,15 @@
-# Sample Hardhat Project
+# Faucet Smart Contract - Hardhat
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This project contains final Faucet Smart Contract from Mastering Ethereum with hardhat setup including deploy and test scripts.
 
-Try running some of the following tasks:
+Go through the scripts and try to interact with the Smart Contract.
+
+Try it locally,
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
+git clone https://github.com/AndrewPrasaath/Faucet-Contract.git
+npm install
 npx hardhat run scripts/deploy.js
+yarn hardhat test (or) npx hardhat test
+npx hardhat node
 ```
