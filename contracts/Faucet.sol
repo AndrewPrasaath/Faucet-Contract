@@ -40,4 +40,8 @@ contract Faucet is Mortal {
 
         emit Withdraw(msg.sender, _withdrawAmount);
     }
+
+    function getOwner() external view returns (address) {
+        return i_owner;
+    }
 }
