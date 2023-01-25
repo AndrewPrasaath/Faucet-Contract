@@ -25,10 +25,10 @@ describe("Faucet", function () {
         "Only contract owner can call this function"
       );
     });
-    // it("contract destroys after calling selfdestruct", async function () {
-    //   await faucet.connect(owner).destroy();
-    //   const bytecode = await ethers.provider.getCode(faucet.address);
-    //   assert.equal(bytecode, "0x");
-    // });
+    it("contract destroys after calling selfdestruct", async function () {
+      await faucet.connect(owner).destroy();
+      const bytecode = await ethers.provider.getCode(faucet.address);
+      assert.equal(bytecode, "0x");
+    });
   });
 });
