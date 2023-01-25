@@ -9,11 +9,12 @@ contract Owned {
         i_owner = payable(msg.sender);
     }
 
+    //modifier that allows only owner to access
     modifier onlyOwner() {
         if (msg.sender != i_owner) {
             revert("Only contract owner can call this function");
-            _;
         }
+        _;
     }
 }
 
