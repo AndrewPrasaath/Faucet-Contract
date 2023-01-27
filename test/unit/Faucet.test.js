@@ -7,8 +7,6 @@ describe("Faucet", function () {
   beforeEach("Faucet", async function () {
     Faucet = await ethers.getContractFactory("Faucet");
     faucet = await Faucet.deploy();
-    //await faucet.deployed();
-
     [owner, signer1] = await ethers.getSigners();
   });
 
@@ -29,6 +27,27 @@ describe("Faucet", function () {
       await faucet.connect(owner).destroy();
       const bytecode = await ethers.provider.getCode(faucet.address);
       assert.equal(bytecode, "0x");
+    });
+  });
+
+  describe("receive", function () {
+    it("emits Deposit event while calling receive", async function () {
+      const transaction = {
+        to: faucet.address,
+        value: ethers.utils.parseEther("1"),
+      };
+      const tx = await owner.sendTransaction(transaction);
+      expect(tx).to.emit(faucet, "Deposit");
+    });
+    it("balance increased after receiving ether", async function () {
+      //const beforeBalance = await faucet.getBalance();
+      await owner.sendTransaction({
+        to: faucet.address,
+        value: ethers.utils.parseEther("1"),
+      });
+      const balance = await ethers.provider.getBalance(faucet.address);
+
+      assert.equal(balance.toString(), "1000000000000000000");
     });
   });
 });
