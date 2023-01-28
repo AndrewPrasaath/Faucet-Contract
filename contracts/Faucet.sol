@@ -33,7 +33,7 @@ contract Faucet is Mortal {
     }
 
     function withdraw(uint _withdrawAmount) public {
-        if (_withdrawAmount > 0.1 ether) revert();
+        if (_withdrawAmount > 0.1 ether) revert("Exeeds withdraw limit!");
         if (address(this).balance < _withdrawAmount)
             revert("Insufficient Fund");
 
